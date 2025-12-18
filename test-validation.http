@@ -1,0 +1,141 @@
+### FluentValidation Demo - Валідація замовлення (валідне)
+POST http://localhost:5000/api/validation-demo/validate-order
+Content-Type: application/json
+
+{
+  "customerName": "Іван Петренко",
+  "customerPhone": "+380501234567",
+  "customerEmail": "ivan@example.com",
+  "deliveryTime": "2025-12-20T14:30:00",
+  "lines": [
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000001",
+      "quantity": 2
+    },
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000002",
+      "quantity": 1
+    }
+  ]
+}
+
+### FluentValidation Demo - Валідація замовлення (некоректний телефон)
+POST http://localhost:5000/api/validation-demo/validate-order
+Content-Type: application/json
+
+{
+  "customerName": "Іван Петренко",
+  "customerPhone": "123456",
+  "customerEmail": "ivan@example.com",
+  "deliveryTime": null,
+  "lines": [
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000001",
+      "quantity": 2
+    }
+  ]
+}
+
+### FluentValidation Demo - Валідація замовлення (час доставки в минулому)
+POST http://localhost:5000/api/validation-demo/validate-order
+Content-Type: application/json
+
+{
+  "customerName": "Олена Коваленко",
+  "customerPhone": "0501234567",
+  "customerEmail": null,
+  "deliveryTime": "2025-12-01T10:00:00",
+  "lines": [
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000001",
+      "quantity": 1
+    }
+  ]
+}
+
+### FluentValidation Demo - Валідація замовлення (дублікати позицій)
+POST http://localhost:5000/api/validation-demo/validate-order
+Content-Type: application/json
+
+{
+  "customerName": "Марія Шевченко",
+  "customerPhone": "+380671234567",
+  "customerEmail": "maria@example.com",
+  "deliveryTime": null,
+  "lines": [
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000001",
+      "quantity": 2
+    },
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000001",
+      "quantity": 3
+    }
+  ]
+}
+
+### FluentValidation Demo - Валідація позиції меню (валідна)
+POST http://localhost:5000/api/validation-demo/validate-menu-item
+Content-Type: application/json
+
+{
+  "name": "Капучіно Grande",
+  "description": "Подвійна порція еспресо з піною з молока",
+  "price": 65.00,
+  "categoryId": "00000000-0000-0000-0000-000000000010",
+  "isAvailable": true,
+  "preparationTimeMinutes": 5
+}
+
+### FluentValidation Demo - Валідація позиції меню (некоректна ціна)
+POST http://localhost:5000/api/validation-demo/validate-menu-item
+Content-Type: application/json
+
+{
+  "name": "Золотий латте",
+  "description": "Латте з золотими пластівцями",
+  "price": 5000.00,
+  "categoryId": "00000000-0000-0000-0000-000000000010",
+  "isAvailable": true,
+  "preparationTimeMinutes": 10
+}
+
+### FluentValidation Demo - Валідація позиції меню (недоступна з часом приготування)
+POST http://localhost:5000/api/validation-demo/validate-menu-item
+Content-Type: application/json
+
+{
+  "name": "Сезонний десерт",
+  "description": "Тимчасово недоступний",
+  "price": 120.00,
+  "categoryId": "00000000-0000-0000-0000-000000000010",
+  "isAvailable": false,
+  "preparationTimeMinutes": 15
+}
+
+### FluentValidation Demo - Тест валідації телефону (коректний)
+GET http://localhost:5000/api/validation-demo/test-phone?phone=+380501234567
+
+### FluentValidation Demo - Тест валідації телефону (некоректний)
+GET http://localhost:5000/api/validation-demo/test-phone?phone=123456
+
+### FluentValidation Demo - Тест валідації часу доставки (валідний)
+GET http://localhost:5000/api/validation-demo/test-delivery-time?deliveryTime=2025-12-25T15:00:00
+
+### FluentValidation Demo - Тест валідації часу доставки (поза робочими годинами)
+GET http://localhost:5000/api/validation-demo/test-delivery-time?deliveryTime=2025-12-25T23:00:00
+
+### FluentValidation Demo - Тест валідації ціни (валідна)
+GET http://localhost:5000/api/validation-demo/test-price?price=45.50
+
+### FluentValidation Demo - Тест валідації ціни (занадто висока)
+GET http://localhost:5000/api/validation-demo/test-price?price=9999.99
+
+### FluentValidation Demo - Правила валідації для замовлення
+GET http://localhost:5000/api/validation-demo/order-validation-rules
+
+### FluentValidation Demo - Правила валідації для позиції меню
+GET http://localhost:5000/api/validation-demo/menu-item-validation-rules
+
+### FluentValidation Demo - Тест множинних помилок
+POST http://localhost:5000/api/validation-demo/test-multiple-errors

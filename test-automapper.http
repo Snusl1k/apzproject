@@ -1,0 +1,35 @@
+### AutoMapper Demo - Отримати всі замовлення з маппінгом Order → OrderDto
+GET http://localhost:5000/api/automapper-demo/orders
+Accept: application/json
+
+### AutoMapper Demo - Отримати замовлення за ID
+GET http://localhost:5000/api/automapper-demo/orders/{{orderId}}
+Accept: application/json
+
+### AutoMapper Demo - Отримати всі позиції меню з маппінгом MenuItem → MenuItemDto
+GET http://localhost:5000/api/automapper-demo/menu-items
+Accept: application/json
+
+### AutoMapper Demo - Отримати всі категорії
+GET http://localhost:5000/api/automapper-demo/categories
+Accept: application/json
+
+### AutoMapper Demo - Статистика з множинним маппінгом колекцій
+GET http://localhost:5000/api/automapper-demo/statistics
+Accept: application/json
+
+### AutoMapper Demo - Створити замовлення через POST
+POST http://localhost:5000/api/automapper-demo/orders
+Content-Type: application/json
+
+{
+  "customerName": "Іван Петренко",
+  "menuItemIds": [
+    "00000000-0000-0000-0000-000000000001",
+    "00000000-0000-0000-0000-000000000002"
+  ]
+}
+
+### AutoMapper Demo - Порівняння підходів до маппінгу
+GET http://localhost:5000/api/automapper-demo/mapping-comparison
+Accept: application/json

@@ -1,0 +1,58 @@
+### Generic Repository Pattern Demo
+
+# Отримати всі замовлення (GetAllAsync)
+GET http://localhost:5000/api/repository-demo/orders
+
+###
+
+# Отримати замовлення за ID (GetByIdAsync)
+GET http://localhost:5000/api/repository-demo/orders/{{orderId}}
+
+###
+
+# Створити нове замовлення (AddAsync)
+POST http://localhost:5000/api/repository-demo/orders
+Content-Type: application/json
+
+{
+  "customerName": "Олена Коваленко",
+  "lines": [
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000001",
+      "menuItemName": "Cappuccino",
+      "unitPrice": 3.20,
+      "quantity": 2
+    },
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000002",
+      "menuItemName": "Croissant",
+      "unitPrice": 2.50,
+      "quantity": 1
+    }
+  ]
+}
+
+###
+
+# Оновити статус замовлення (UpdateAsync)
+PUT http://localhost:5000/api/repository-demo/orders/{{orderId}}/status
+Content-Type: application/json
+
+{
+  "status": "InProgress"
+}
+
+###
+
+# Знайти замовлення за умовою - Pending (FindAsync)
+GET http://localhost:5000/api/repository-demo/orders/pending
+
+###
+
+# Отримати статистику (CountAsync, ExistsAsync)
+GET http://localhost:5000/api/repository-demo/statistics
+
+###
+
+# Видалити замовлення (DeleteAsync)
+DELETE http://localhost:5000/api/repository-demo/orders/{{orderId}}

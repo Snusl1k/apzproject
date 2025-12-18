@@ -1,0 +1,38 @@
+### Cache Demo - Базова робота з кешем
+GET http://localhost:5000/api/cache-demo/basic-demo
+
+### Cache Demo - GetOrCreate (перший виклик - повільно, другий - швидко з кешу)
+GET http://localhost:5000/api/cache-demo/get-or-create
+
+### Cache Demo - Кешування колекцій
+GET http://localhost:5000/api/cache-demo/collection-demo
+
+### Cache Demo - Інвалідація конкретного ключа
+DELETE http://localhost:5000/api/cache-demo/invalidate/demo:basic
+
+### Cache Demo - Інвалідація за префіксом (всі ключі з префіксом "demo:")
+DELETE http://localhost:5000/api/cache-demo/invalidate-prefix/demo:
+
+### Cache Demo - Інвалідація за префіксом "orders:"
+DELETE http://localhost:5000/api/cache-demo/invalidate-prefix/orders:
+
+### Cache Demo - Демонстрація різних термінів кешування
+GET http://localhost:5000/api/cache-demo/expiration-demo
+
+### Cache Demo - Статистика кешу
+GET http://localhost:5000/api/cache-demo/statistics
+
+### Cache Demo - Performance порівняння (Cache vs No Cache)
+GET http://localhost:5000/api/cache-demo/performance-comparison
+
+### Cache Demo - Очистити весь кеш
+DELETE http://localhost:5000/api/cache-demo/clear-all
+
+### Cache Demo - Тест послідовності: GetOrCreate → Statistics → Invalidate → Statistics
+GET http://localhost:5000/api/cache-demo/get-or-create
+###
+GET http://localhost:5000/api/cache-demo/statistics
+###
+DELETE http://localhost:5000/api/cache-demo/invalidate/demo:expensive-data
+###
+GET http://localhost:5000/api/cache-demo/statistics

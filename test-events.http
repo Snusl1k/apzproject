@@ -1,0 +1,18 @@
+### Test Event-Driven Design - Create Order
+
+POST http://localhost:5000/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "Іван Петренко",
+  "lines": [
+    {
+      "menuItemId": "{{menuItemId}}",
+      "quantity": 2
+    }
+  ]
+}
+
+###
+
+GET http://localhost:5000/api/menuitems

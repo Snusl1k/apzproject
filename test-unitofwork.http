@@ -1,0 +1,69 @@
+### Unit of Work Pattern Demo
+
+# Отримати список замовлень через UnitOfWork
+GET http://localhost:5000/api/unit-of-work/orders
+
+###
+
+# Отримати статистику (доступ до кількох репозиторіїв)
+GET http://localhost:5000/api/unit-of-work/statistics
+
+###
+
+# Створити замовлення з валідацією через Unit of Work
+# Координація Orders + MenuItems репозиторіїв
+POST http://localhost:5000/api/unit-of-work/create-order-with-validation
+Content-Type: application/json
+
+{
+  "customerName": "Петро Іванович",
+  "lines": [
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000001",
+      "quantity": 2
+    },
+    {
+      "menuItemId": "00000000-0000-0000-0000-000000000002",
+      "quantity": 1
+    }
+  ]
+}
+
+###
+
+# Повний робочий процес - створення категорії, позиції меню та замовлення
+# Координація 3-х репозиторіїв: MenuCategories + MenuItems + Orders
+POST http://localhost:5000/api/unit-of-work/create-full-workflow
+Content-Type: application/json
+
+{
+  "categoryName": "Десерти",
+  "categoryDescription": "Солодкі страви",
+  "menuItemName": "Тірамісу",
+  "menuItemDescription": "Італійський десерт з маскарпоне",
+  "menuItemPrice": 5.50,
+  "customerName": "Марія Петрівна",
+  "quantity": 2
+}
+
+###
+
+# Тест rollback - демонстрація відкату транзакції при помилці
+GET http://localhost:5000/api/unit-of-work/test-rollback
+
+###
+
+# Спроба створити замовлення з неіснуючою позицією меню
+# Має відкотити транзакцію
+POST http://localhost:5000/api/unit-of-work/create-order-with-validation
+Content-Type: application/json
+
+{
+  "customerName": "Test Rollback",
+  "lines": [
+    {
+      "menuItemId": "99999999-9999-9999-9999-999999999999",
+      "quantity": 1
+    }
+  ]
+}

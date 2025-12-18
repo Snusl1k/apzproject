@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeOrders.Api", "CafeOrders.Api\CafeOrders.Api.csproj", "{3DE7D50E-1AD0-420C-BBE7-404193E1B4E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeOrders.Domain", "CafeOrders.Domain\CafeOrders.Domain.csproj", "{ECE42311-1084-42E2-B03E-D73BA5366967}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeOrders.Application", "CafeOrders.Application\CafeOrders.Application.csproj", "{7A631E1F-CAFC-4063-9E00-94A00CE0627E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeOrders.Infrastructure", "CafeOrders.Infrastructure\CafeOrders.Infrastructure.csproj", "{1BE57C64-CC27-4195-8424-A10657299D0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DE7D50E-1AD0-420C-BBE7-404193E1B4E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE7D50E-1AD0-420C-BBE7-404193E1B4E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE7D50E-1AD0-420C-BBE7-404193E1B4E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE7D50E-1AD0-420C-BBE7-404193E1B4E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECE42311-1084-42E2-B03E-D73BA5366967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE42311-1084-42E2-B03E-D73BA5366967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE42311-1084-42E2-B03E-D73BA5366967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE42311-1084-42E2-B03E-D73BA5366967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A631E1F-CAFC-4063-9E00-94A00CE0627E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A631E1F-CAFC-4063-9E00-94A00CE0627E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A631E1F-CAFC-4063-9E00-94A00CE0627E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A631E1F-CAFC-4063-9E00-94A00CE0627E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BE57C64-CC27-4195-8424-A10657299D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BE57C64-CC27-4195-8424-A10657299D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BE57C64-CC27-4195-8424-A10657299D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BE57C64-CC27-4195-8424-A10657299D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
